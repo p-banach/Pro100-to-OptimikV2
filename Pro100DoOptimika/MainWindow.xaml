@@ -5,21 +5,69 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pro100DoOptimika"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Pro100 do Optimika" Height="682.73" Width="1294.8"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}" ResizeMode="NoResize"
+        >
+
+    <Grid Margin="10,0,3.2,-0.4">
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
+        
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="270*"/>
-            <ColumnDefinition Width="57*"/>
-            <ColumnDefinition Width="466*"/>
-            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="930*"/>
+            <ColumnDefinition Width="auto" MinWidth="180.8"/>
         </Grid.ColumnDefinitions>
-        <TextBox Name="pathToFile" Margin="10,29,206.6,-0.4" Grid.ColumnSpan="3"/>
-        <Button Content="Przeglądaj" Click="Button_Click" Grid.Column="2" Margin="264.4,29,128.6,-0.4"/>
-        <Label Content="Wybierz plik, który chcesz wczytać:" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Height="24" Width="370" Grid.ColumnSpan="3"/>
-        <Button Content="Konwertuj" Click="Button_Click1" Grid.Column="2" Margin="346.4,29,31.6,-0.4"/>
-        <TextBox Name="FileContentsBox" HorizontalAlignment="Left" Margin="10,91,0,-356.4" TextWrapping="Wrap" Text="TextBox1" VerticalAlignment="Top" Height="300" Width="763" Grid.ColumnSpan="3" ScrollViewer.CanContentScroll="True" VerticalScrollBarVisibility="Auto"/>
+
+        <Label Content="Wybierz plik, który chcesz wczytać:" HorizontalAlignment="Left" Margin="-2,5,0,20.6" Width="370"/>
+        <TextBox Name="PathToLoadedFileBox" Margin="0,29,180.6,0" Grid.ColumnSpan="3" Height="20" VerticalAlignment="Top"/>
+        
+        <Button Content="Przeglądaj" Click="Browse_Click" Grid.Column="2" Margin="0,29,92.6,0" HorizontalAlignment="Right" Width="86" Height="20" VerticalAlignment="Top"/>
+        <Button Content="Konwertuj" Click="Convert_Click" Margin="93.2,29,0,0" RenderTransformOrigin="0.596,-0.84" Grid.Column="2" HorizontalAlignment="Left" Width="78" Height="20" VerticalAlignment="Top"/>
+
+        <ListView x:Name="PreconversionFilePreviewBox"
+                  HorizontalAlignment="Left" 
+                  VerticalAlignment="Stretch"
+                  Margin="0,53,0,-593.4" 
+                  Grid.ColumnSpan="2" IsSynchronizedWithCurrentItem="False" Width="1265">
+
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="" Width="Auto" DisplayMemberBinding="{Binding Path=Data[0]}"/>
+                    <GridViewColumn Header="" Width="Auto" DisplayMemberBinding="{Binding Path=Data[1]}"/>
+                    <GridViewColumn Header="" Width="Auto" DisplayMemberBinding="{Binding Path=Data[2]}"/>
+                    <GridViewColumn Header="" Width="Auto" DisplayMemberBinding="{Binding Path=Data[3]}"/>
+                    <GridViewColumn Header="" Width="Auto" DisplayMemberBinding="{Binding Path=Data[4]}"/>
+                    <GridViewColumn Header="" Width="Auto" DisplayMemberBinding="{Binding Path=Data[5]}"/>
+                    <GridViewColumn Header="" Width="Auto" DisplayMemberBinding="{Binding Path=Data[6]}"/>
+                    <GridViewColumn Header="" Width="Auto" DisplayMemberBinding="{Binding Path=Data[7]}"/>
+                    <GridViewColumn Header="" Width="Auto" DisplayMemberBinding="{Binding Path=Data[8]}"/>
+                    <GridViewColumn Header="" Width="Auto" DisplayMemberBinding="{Binding Path=Data[9]}"/>
+                    <GridViewColumn Header="" Width="Auto" DisplayMemberBinding="{Binding Path=Data[10]}"/>
+                    <GridViewColumn Header="" Width="Auto" DisplayMemberBinding="{Binding Path=Data[11]}"/>
+                    <GridViewColumn Header="" Width="Auto" DisplayMemberBinding="{Binding Path=Data[13]}"/>
+                    <GridViewColumn Header="" Width="Auto" DisplayMemberBinding="{Binding Path=Data[14]}"/>
+                    <GridViewColumn Header="" Width="Auto" DisplayMemberBinding="{Binding Path=Data[15]}"/>
+                    <GridViewColumn Header="" Width="Auto" DisplayMemberBinding="{Binding Path=Data[16]}"/>
+                    <GridViewColumn Header="" Width="Auto" DisplayMemberBinding="{Binding Path=Data[17]}"/>
+                    <GridViewColumn Header="" Width="Auto" DisplayMemberBinding="{Binding Path=Data[18]}"/>
+                    <GridViewColumn Header="" Width="Auto" DisplayMemberBinding="{Binding Path=Data[19]}"/>
+                    <GridViewColumn Header="" Width="Auto" DisplayMemberBinding="{Binding Path=Data[20]}"/>
+                    <GridViewColumn Header="" Width="Auto" DisplayMemberBinding="{Binding Path=Data[21]}"/>
+                    <GridViewColumn Header="" Width="Auto" DisplayMemberBinding="{Binding Path=Data[22]}"/>
+                    <GridViewColumn Header="" Width="Auto" DisplayMemberBinding="{Binding Path=Data[23]}"/>
+                    <GridViewColumn Header="" Width="Auto" DisplayMemberBinding="{Binding Path=Data[23]}"/>
+                    <GridViewColumn Header="" Width="Auto" DisplayMemberBinding="{Binding Path=Data[24]}"/>
+                </GridView>
+            </ListView.View>
+
+        </ListView>
     </Grid>
 </Window>

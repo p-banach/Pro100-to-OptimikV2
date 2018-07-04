@@ -1,47 +1,63 @@
-﻿using System.Windows;
+﻿using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Forms;
 
 namespace Pro100DoOptimika
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MainWindow.xaml.
     /// </summary>
     public partial class MainWindow : Window
     {
+        ConversionProcess ConversionProcess;
+
+        /// <summary>
+        /// Used to chose file to convert, preview it's contents, and start conversion process.
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
+            ConversionProcess = new ConversionProcess();
         }
 
-        public void Button_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Browser used to to choose file to convert.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void Browse_Click(object sender, RoutedEventArgs e)
         {
+            // opens a folder browser for user to pick a file to convert.
             OpenFileDialog ofd = new OpenFileDialog();
+
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                this.pathToFile.Text = ofd.FileName;
+                // shows the path to file
+                PathToLoadedFileBox.Text = ofd.FileName;
+
+                // loads pre-conversion file info
+                PreconversionFilePreviewBox.ItemsSource = ConversionProcess.FileContentsPreConversion.LoadFile(PathToLoadedFileBox.Text);
             }
         }
 
-        public void Button_Click1(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Starts conversion.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
+        public void Convert_Click(object sender, RoutedEventArgs e)
         {
-            if (this.pathToFile.Text == "")
+            if (PathToLoadedFileBox.Text == "")
             {
                 System.Windows.MessageBox.Show("Nie wybrano pliku do konwersji.");
             }
             else
             {
-                System.Windows.MessageBox.Show("Rozpoczynam konwersję.");
-                Conversion conversion = new Conversion();
-                FileContentsBox.Text = pathToFile.Text;
-
-                conversion.StartConversion(pathToFile.Text);
-                FileContentsBox.Text = string.Join("\n", conversion.FileContents);
+                ConversionWindow conversionWindow = new ConversionWindow(ConversionProcess);
+                conversionWindow.Show();
             }
         }
-
-
     }
-
-
 }
