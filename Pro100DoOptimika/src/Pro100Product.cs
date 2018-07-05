@@ -24,6 +24,13 @@ namespace Pro100DoOptimika
 
         public int Number { get; set; }
 
+        public List<ProductComponent> ComponentsList { get; set; }
+
+        /// <summary>
+        /// Holds all possible Edging Strips for Product.
+        /// </summary>
+        public List<EdgingStrip> EdgingStripsList { get; set; }
+
         /// <summary>
         /// Number is always needed to initialize a product.
         /// </summary>
@@ -32,6 +39,8 @@ namespace Pro100DoOptimika
         {
             Number = number;
             PreprocessedInfo = new List<String[]>();
+            ComponentsList = new List<ProductComponent>();
+            EdgingStripsList = new List<EdgingStrip>();
         }
 
         /// <summary>
@@ -67,6 +76,26 @@ namespace Pro100DoOptimika
             int tildeIndex = temp.LastIndexOf('~');
 
             Name = PreprocessedInfo[--index][0].Substring(tildeIndex+1);
+        }
+
+        /// <summary>
+        /// Goes through preprocessed info and extracts Component info and existing EdgingStrips.
+        /// </summary>
+        public void SortIntoComponents()
+        {
+            foreach(string[] data in PreprocessedInfo)
+            {
+                ProductComponent component = new ProductComponent();
+                component.FindComponentName(data);
+                component.FindComponentMaterial(data);
+                component.FindComponentAmount(data);
+                component.FindComponentLengthAndWidth(data);
+                component.FindComponentEdgingStripsAndSurplus(data);
+                component.FindComponentCNCCode(data);
+                component.FindComponentCode(this.Symbol);
+                // todo
+                // check for new edging strip names and save them to products list
+            }
         }
     }
 }

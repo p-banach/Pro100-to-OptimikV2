@@ -58,11 +58,12 @@
     <Compile Include="ConversionWindow.xaml.cs">
       <DependentUpon>ConversionWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="src\Component.cs" />
-    <Compile Include="src\ConversionProcess.cs" />
-    <Compile Include="src\DataRow.cs" />
-    <Compile Include="src\FileContentsPreConversion.cs" />
-    <Compile Include="src\Product.cs" />
+    <Compile Include="src\Pro100ProductComponent.cs" />
+    <Compile Include="src\Pro100ConversionProcess.cs" />
+    <Compile Include="src\Pro100DataRow.cs" />
+    <Compile Include="src\Pro100FileContentsPreConversion.cs" />
+    <Compile Include="src\Pro100Product.cs" />
+    <Compile Include="src\Pro100EdgingStrip.cs" />
     <Page Include="ConversionWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

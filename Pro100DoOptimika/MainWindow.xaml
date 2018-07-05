@@ -10,27 +10,41 @@
         >
 
     <Grid Margin="10,0,3.2,-0.4">
-        
+
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        
+
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="930*"/>
+            <ColumnDefinition Width="61*"/>
+            <ColumnDefinition Width="12*"/>
             <ColumnDefinition Width="auto" MinWidth="180.8"/>
         </Grid.ColumnDefinitions>
 
-        <Label Content="Wybierz plik, który chcesz wczytać:" HorizontalAlignment="Left" Margin="-2,5,0,20.6" Width="370"/>
-        <TextBox Name="PathToLoadedFileBox" Margin="0,29,180.6,0" Grid.ColumnSpan="3" Height="20" VerticalAlignment="Top"/>
-        
-        <Button Content="Przeglądaj" Click="Browse_Click" Grid.Column="2" Margin="0,29,92.6,0" HorizontalAlignment="Right" Width="86" Height="20" VerticalAlignment="Top"/>
-        <Button Content="Konwertuj" Click="Convert_Click" Margin="93.2,29,0,0" RenderTransformOrigin="0.596,-0.84" Grid.Column="2" HorizontalAlignment="Left" Width="78" Height="20" VerticalAlignment="Top"/>
+        <Label Content="Wybierz plik, który chcesz wczytać:" HorizontalAlignment="Left" Margin="-2,5,0,21" Width="370"/>
+        <TextBox Name="PathToLoadedFileBox" Margin="0,29,180.2,0" Grid.ColumnSpan="3" Height="20" VerticalAlignment="Top"/>
+
+        <Button Content="Przeglądaj" Click="Browse_Click"
+                Grid.Column="2" Margin="0,29,92.2,0" 
+                HorizontalAlignment="Right"
+                Width="86" Height="20" 
+                VerticalAlignment="Top"/>
+
+        <Button Content="Konwertuj" Click="Convert_Click" 
+                Margin="93.6,29,0,0" RenderTransformOrigin="0.596,-0.84" 
+                Grid.Column="2" 
+                HorizontalAlignment="Left"
+                Width="78" Height="20" 
+                VerticalAlignment="Top"/>
 
         <ListView x:Name="PreconversionFilePreviewBox"
                   HorizontalAlignment="Left" 
                   VerticalAlignment="Stretch"
-                  Margin="0,53,0,-593.4" 
-                  Grid.ColumnSpan="2" IsSynchronizedWithCurrentItem="False" Width="1265">
+                  Margin="0,53,0,-519" 
+                  Grid.ColumnSpan="3" IsSynchronizedWithCurrentItem="False" Width="1265" 
+                  ScrollViewer.HorizontalScrollBarVisibility="Visible" 
+                  ScrollViewer.VerticalScrollBarVisibility="Visible"
+                  ScrollViewer.CanContentScroll="True">
 
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
