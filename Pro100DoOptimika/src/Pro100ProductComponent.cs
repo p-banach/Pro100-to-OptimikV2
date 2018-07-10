@@ -36,15 +36,10 @@ namespace Pro100DoOptimika
         public int Length { get; set; }
         public int Width { get; set; }
 
-        public String TempStripA { get; set; }
-        public String TempStripB { get; set; }
-        public String TempStripC { get; set; }
-        public String TempStripD { get; set; }
-
-        public EdgingStrip EStripA { get; set; }
-        public EdgingStrip EStripB { get; set; }
-        public EdgingStrip EStripC { get; set; }
-        public EdgingStrip EStripD { get; set; }
+        public String EdgingStripStorageNameA { get; set; }
+        public String EdgingStripStorageNameB { get; set; }
+        public String EdgingStripStorageNameC { get; set; }
+        public String EdgingStripStorageNameD { get; set; }
 
         /// <summary>
         /// Edges with edging strip on them might need to be longer.
@@ -111,10 +106,10 @@ namespace Pro100DoOptimika
         {   
             // That's just what it's set up like right now in Pro100 export settings.
             // also, pro100 exports data in cm, Optimik accepts it in mm.
-            this.TempStripA = data[9];
-            this.TempStripB = data[12];
-            this.TempStripC = data[15];
-            this.TempStripD = data[18];
+            this.EdgingStripStorageNameA = data[9];
+            this.EdgingStripStorageNameB = data[12];
+            this.EdgingStripStorageNameC = data[15];
+            this.EdgingStripStorageNameD = data[18];
 
             // hardcoding surplus for now.
             this.SurplusOnEdgesWithStrip = 0.8;
@@ -128,7 +123,6 @@ namespace Pro100DoOptimika
         {
             this.CNCCommand = this.Code;
         }
-
 
         /// <summary>
         /// Finds first letters of component name, and saves them in format of productCode_FIRSTLETTERSOFCOMPONENTNAME.
@@ -147,7 +141,5 @@ namespace Pro100DoOptimika
             // might need this for later.
             //str.Split(' ').ToList().ForEach(i => this.Code += (i[0] + " "));
         }
-
-
     }
 }

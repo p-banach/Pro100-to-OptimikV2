@@ -68,16 +68,11 @@ namespace Pro100DoOptimika
         /// </summary>
         public void AnalyzeProductsData()
         {
-
-        }
-
-        /// <summary>
-        /// After transforming data, this function saves it (will do so)
-        /// to requested files.
-        /// </summary>
-        public void SaveFiles()
-        {
-
+            foreach (Product prod in Products)
+            {
+                prod.SortIntoComponents();
+                prod.PrepareEdgingStripsList();
+            }
         }
 
         /// <summary>
@@ -136,8 +131,16 @@ namespace Pro100DoOptimika
                 {
                 }
             }
-
             return ret;
+        }
+
+        /// <summary>
+        /// After transforming data, this function saves it (will do so)
+        /// to requested files.
+        /// </summary>
+        public void SaveFiles()
+        {
+
         }
     }
 }

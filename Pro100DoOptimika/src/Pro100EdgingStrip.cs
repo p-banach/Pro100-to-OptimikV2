@@ -8,6 +8,15 @@ namespace Pro100DoOptimika
 {
     public class EdgingStrip
     {
+        public EdgingStrip(string code, string name, int type, string storageItemCode, double size)
+        {
+            Code = code;
+            Name = name;
+            Type = type;
+            StorageItemCode = storageItemCode;
+            Size = size;
+        }
+
         public String Code { get; set; }
         public String Name { get; set; }
 
@@ -22,6 +31,5 @@ namespace Pro100DoOptimika
         public String StorageItemCode { get; set; }
 
         public Double Size { get; set; }
-
     }
 }
